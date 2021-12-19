@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.product.dao.ProductDao">
+    <select id="GetProduct" parameterType="int" resultType="Product">
+        select id,product_name as productName,stock,price,version,note from T_Product where id=#{id}
+    </select>
+
+    <update id="DecreaseProduct">
+        update T_Product set stock=stock-#{quantity} where id=#{id}
+    </update>
+</mapper>
